@@ -4,12 +4,22 @@
     <meta charset="utf-8">
     <title>Guess - The Color Game</title>
   </head>
-  <body onload="start()">
+  <body onload="do_game()">
 
 
   <script type="text/javascript">
-    function start(){
-      prompt('ok');
+    var color = ['black', 'blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
+
+
+    function do_game() {
+      var index = Math.floor(Math.random() * color.length);
+      var colorRandom = color[index];
+      alert(colorRandom);
+      while (check_guess(color) !== colorRandom) {}
+    }
+
+    function check_guess(colors){
+      return prompt("I am thinking of one of these colors:\n\n"+ colors + "\n\n\nWhat color I am thinking of ?");
     }
   </script>
   </body>
