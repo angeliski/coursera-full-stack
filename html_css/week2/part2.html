@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Guess - The Color Game</title>
+  </head>
+  <body onload="do_game()">
+
+
+  <script type="text/javascript">
+    var colors = ['black', 'blue', 'cyan', 'gold', 'gray', 'green', 'magenta', 'orange', 'red', 'white', 'yellow'];
+
+    function do_game() {
+      var count = 1;
+      var index = Math.floor(Math.random() * colors.length);
+      var colorRandom = colors[index];
+      alert(colorRandom);
+
+      while (check_guess(colors, colorRandom)) {
+        count++;
+      }
+
+      document.body.style.background=colorRandom;
+
+      alert('You are right! You took '+ count +' guesses!')
+    }
+
+    function check_guess(colors, colorRandom){
+      var anwser = prompt("I am thinking of one of these colors:\n\n"+ colors + "\n\n\nWhat color I am thinking of ?");;
+      if(anwser !== colorRandom){
+        if(colors.indexOf(anwser) <= -1){
+          alert('I don’t recognize that color!');
+        }else if(colorRandom < anwser){
+          alert('Your input is alphabetically higher than mine!');
+        }else {
+          alert('Your input is alphabetically lower than mine!');
+        }
+        return true;
+      }
+      return false;
+    }
+  </script>
+  </body>
+</html>
